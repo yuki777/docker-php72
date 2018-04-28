@@ -45,3 +45,6 @@ ENV LANG C.UTF-8
 
 # Git
 RUN apt-get update && apt-get install -y git
+
+# Zip
+RUN apt-get update && apt-get install -y zip unzip
