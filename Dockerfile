@@ -1,4 +1,4 @@
-FROM php:7.2-fpm
+FROM php:7.2.12-fpm
 
 # php-ext
 RUN apt-get update && apt-get install -y \
@@ -48,3 +48,12 @@ RUN apt-get update && apt-get install -y git
 
 # Zip
 RUN apt-get update && apt-get install -y zip unzip
+
+# Cron, Vim
+RUN apt-get update && apt-get install -y cron vim
+
+# XDebug
+RUN pecl install -o -f xdebug \
+ && rm -rf /tmp/pear \
+ && docker-php-ext-enable xdebug
+
